@@ -11,26 +11,16 @@
 		<td><%=product.description%></td>
 		<td><%=product.created_at%></td>
 	</tr>
-	<%end%>
+	
 
-	<% if @product.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@product.errors.count, "error")%>prohibited this post from being saved:</h2>
-    <ul>
-      <% @product.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
+
 <% end %>
+
 </table>
 
 <h2>Create new product</h2>
-<form action="/products/" method="post">
-<input name="authenticity_token" value="<%=form_authenticity_token%>" type="hidden">
-	<input type="text" name="name" placeholder="Product Name"/><br/>
-	<textarea name="description" placeholder="Description"></textarea>
-	<input type="submit" value="Create">
-
+<form action='/products/' method='post'>
+  <input type='text' name='product[name]' placeholder='name' />
+  <input type='text' name='product[description]' placeholder='description' />
+  <input type='submit' value='Create' />
 </form>
-
